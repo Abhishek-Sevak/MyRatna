@@ -1,0 +1,104 @@
+/* ===== Variables ===== */
+
+:root { --gold: #a8782a; --ink: #14161f; --cream: #fbf9f6; }
+
+body { font-family: 'Jost', sans-serif; color: var(--ink); }
+
+/* ===== Top bar + header ===== */
+.topbar { background: var(--ink); color: #fff; font-size: .75rem; letter-spacing: .08em; }
+.logo { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--ink); text-decoration: none; }
+.logo small { display: block; font-size: .6rem; letter-spacing: .05em; margin-top: -8px; text-align: right; }
+.navbar .nav-link { font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); }
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 560px; color: #fff; display: flex; align-items: flex-end;
+  background: linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.35)),
+              radial-gradient(circle at 70% 40%, #5a4a3a, #14161f);
+}
+.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.2rem); }
+
+/* ===== Buttons + titles ===== */
+.btn-shop { background: #fff; color: var(--ink); border-radius: 0; letter-spacing: .15em; font-size: .8rem; padding: .9rem 1.8rem; }
+.btn-shop:hover { background: var(--gold); color: #fff; }
+.sec-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); text-align: center; }
+
+/* ===== Gemstone circles ===== */
+.gem {
+  width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 12px;
+  box-shadow: inset -6px -6px 14px rgba(0,0,0,.35), 0 4px 10px rgba(0,0,0,.2);
+}
+.gem-yellow { background: radial-gradient(circle at 30% 30%, #fff8, #e8c93a 45%); }
+.gem-blue   { background: radial-gradient(circle at 30% 30%, #fff8, #1d3fbf 45%); }
+.gem-green  { background: radial-gradient(circle at 30% 30%, #fff8, #14794a 45%); }
+.gem-red    { background: radial-gradient(circle at 30% 30%, #fff8, #cf1522 45%); }
+.gem-coral  { background: radial-gradient(circle at 30% 30%, #fff8, #ee4a2c 45%); }
+.gem-pearl  { background: radial-gradient(circle at 30% 30%, #fff8, #f1f1ee 45%); }
+.gem-olive  { background: radial-gradient(circle at 30% 30%, #fff8, #8c9060 45%); }
+.gem-garnet { background: radial-gradient(circle at 30% 30%, #fff8, #a02a20 45%); }
+.gem-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; }
+.gem-sub { font-size: .8rem; color: #444; }
+
+/* ===== Jewellery category cards ===== */
+.cat-img {
+  aspect-ratio: 1 / 1.1; display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; background: linear-gradient(135deg, #f3e9d8, #d8c3a0);
+}
+
+/* ===== Zodiac ===== */
+.zodiac { background: var(--cream); }
+.z-card {
+  background: #fff; border: 1px solid var(--gold); padding: 14px; height: 100%;
+  display: flex; align-items: center; gap: 14px; transition: .2s;
+  text-decoration: none; color: var(--ink);
+}
+.z-card:hover { box-shadow: 0 6px 18px rgba(168,120,42,.25); transform: translateY(-2px); }
+.z-ic {
+  width: 56px; height: 56px; border-radius: 50%; background: var(--gold); color: #fff;
+  font-size: 1.6rem; display: flex; align-items: center; justify-content: center; flex: none;
+}
+.z-card b { display: block; }
+.z-card span { color: var(--gold); }
+
+/* ===== Brooches / Cufflinks tiles ===== */
+.tile {
+  min-height: 420px; color: #fff; padding: 2rem; text-align: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+}
+.tile h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; }
+.tile small { letter-spacing: .2em; }
+.tile-blue { background: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.7)), linear-gradient(135deg, #1e3a6b, #0b1530); }
+.tile-grey { background: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.6)), linear-gradient(135deg, #8a8f99, #3c4048); }
+
+/* ===== Natural Diamonds banner ===== */
+.diamond {
+  min-height: 320px; background-color: #000; color: #fff; text-align: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background-image: radial-gradient(circle at 15% 40%, #444, transparent 25%),
+                    radial-gradient(circle at 90% 50%, #5a3a30, transparent 30%);
+}
+
+/* ===== Finest gemstones ===== */
+.stone-img { aspect-ratio: 1 / .9; display: flex; align-items: center; justify-content: center; background: #8a8f9d; }
+.stone-gem { width: 55%; aspect-ratio: 1 / .8; border-radius: 40%; }
+.s-ruby { background: radial-gradient(circle at 35% 30%, #fff7, #c8203f 55%); }
+.s-alx1 { background: radial-gradient(circle at 35% 30%, #fff7, #9a8a3a 55%); }
+.s-alx2 { background: radial-gradient(circle at 35% 30%, #fff7, #a3a06a 55%); }
+.s-alx3 { background: radial-gradient(circle at 35% 30%, #fff7, #c9a020 55%); }
+.stone h6 { font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; margin-top: 12px; }
+
+/* ===== Footer ===== */
+footer { background: var(--ink); color: #bbb; font-size: .9rem; }
+footer a { color: #bbb; text-decoration: none; }
+footer a:hover { color: #fff; }
+.footer-logo { color: #fff; font-size: 1.8rem; }
+
+/* ===== Floating buttons ===== */
+.float {
+  position: fixed; width: 56px; height: 56px; border-radius: 50%; color: #fff; font-size: 1.6rem;
+  display: flex; align-items: center; justify-content: center; z-index: 99;
+  text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+.float-wa   { bottom: 20px; left: 20px; background: #25d366; }
+.float-call { bottom: 90px; right: 20px; background: #c9a24a; }
+.float-chat { bottom: 20px; right: 20px; background: #14213d; }

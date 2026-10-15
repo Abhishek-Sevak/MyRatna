@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyRatna - The World of Gemstones</title>
+
+  <!-- Bootstrap CSS + Icons + Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Apni CSS (Bootstrap ke baad) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topbar text-center py-2">CERTIFIED GEMSTONES AVAILABLE</div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white sticky-top border-bottom">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid px-4 flex-wrap">
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a href="#" class="logo mx-auto text-center">✷MyRatna<small>The World of Gemstones</small></a>
+
+        <div class="d-flex gap-3 fs-5 ms-auto">
+          <i class="bi bi-search"></i><i class="bi bi-person"></i><i class="bi bi-bag"></i>
+          <span class="fs-6 align-self-center">INR</span>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-center w-100" id="nav">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Gemstones</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Ruby</a></li>
+                <li><a class="dropdown-item" href="#">Emerald</a></li>
+                <li><a class="dropdown-item" href="#">Blue Sapphire</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Jewellery</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Rings</a></li>
+                <li><a class="dropdown-item" href="#">Pendants</a></li>
+                <li><a class="dropdown-item" href="#">Earrings</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Bracelets</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Japa Mala</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Rudraksha</a>
+              <ul class="dropdown-menu"><li><a class="dropdown-item" href="#">Rudraksha Beads</a></li></ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Calculators</a>
+              <ul class="dropdown-menu"><li><a class="dropdown-item" href="#">Gemstone Calculator</a></li></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO CAROUSEL ===== -->
+  <section id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="hero"><div class="container-fluid px-5 pb-5">
+          <h1>Gemstones, Naturally Beautiful</h1>
+          <p>Certified natural gemstones, handpicked for you.</p>
+          <a href="#" class="btn btn-shop">SHOP NOW →</a>
+        </div></div>
+      </div>
+      <div class="carousel-item">
+        <div class="hero"><div class="container-fluid px-5 pb-5">
+          <h1>Jewellery Crafted, Just for You</h1>
+          <p>Transform your vision into a one-of-a-kind masterpiece with our bespoke jewellery design service.</p>
+          <a href="#" class="btn btn-shop">SHOP NOW →</a>
+        </div></div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" data-bs-target="#heroCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+    <button class="carousel-control-next" data-bs-target="#heroCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+  </section>
+
+  <!-- ===== BUY GEMSTONES (JS se bharega) ===== -->
+  <section class="container-fluid px-4 py-5">
+    <h2 class="sec-title mb-5">Buy Gemstones Online</h2>
+    <div class="row g-4 text-center" id="gems"></div>
+  </section>
+
+  <!-- ===== JEWELLERY CATEGORIES ===== -->
+  <section class="container-fluid px-4 pb-5">
+    <h2 class="sec-title">Shop Gemstone Jewellery Online</h2>
+    <p class="text-center mb-4">Discover beautifully crafted rings, pendants, bracelets, and earrings featuring natural gemstones for every style and occasion.</p>
+    <div class="row g-4" id="cats"></div>
+  </section>
+
+  <!-- ===== ZODIAC ===== -->
+  <section class="zodiac py-5">
+    <div class="container-fluid px-4">
+      <h2 class="sec-title">Shop by Zodiac</h2>
+      <p class="text-center mb-4">Bracelets &amp; gemstones matched to your rashi - our best-selling personalised collection.</p>
+      <div class="row g-3" id="zodiac"></div>
+    </div>
+  </section>
+
+  <!-- ===== BROOCHES / CUFFLINKS ===== -->
+  <section class="container-fluid px-4 py-5">
+    <div class="row g-4">
+      <div class="col-md-6"><div class="tile tile-blue"><small>GEMSTONE</small><h3>Brooches</h3><a href="#" class="btn btn-shop">SHOP NOW</a></div></div>
+      <div class="col-md-6"><div class="tile tile-grey"><small>GEMSTONE</small><h3>Cufflinks</h3><a href="#" class="btn btn-shop">SHOP NOW</a></div></div>
+    </div>
+  </section>
+
+  <!-- ===== DIAMONDS ===== -->
+  <section class="diamond">
+    <h2 class="sec-title text-white mb-3">Natural Diamonds</h2>
+    <a href="#" class="btn btn-shop">SHOP NOW →</a>
+  </section>
+
+  <!-- ===== FINEST GEMSTONES ===== -->
+  <section class="container-fluid px-4 py-5">
+    <h2 class="sec-title">Our Finest Gemstones</h2>
+    <p class="text-center mb-4">Carefully chosen stones with natural beauty</p>
+    <div class="row g-4" id="finest"></div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-5">
+    <div class="container-fluid px-4">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="logo footer-logo mb-2">✷MyRatna</div>
+          <p>The World of Gemstones. Certified natural gemstones &amp; jewellery.</p>
+        </div>
+        <div class="col-6 col-md-4">
+          <h6 class="text-white">Quick Links</h6>
+          <a href="#">Gemstones</a><br><a href="#">Jewellery</a><br><a href="#">Bracelets</a><br><a href="#">Rudraksha</a>
+        </div>
+        <div class="col-6 col-md-4">
+          <h6 class="text-white">Contact</h6>
+          <p>support@example.com<br>+91 00000 00000</p>
+        </div>
+      </div>
+      <hr class="border-secondary">
+      <p class="text-center mb-0 small">© 2026 MyRatna Clone. Educational project.</p>
+    </div>
+  </footer>
+
+  <!-- Floating buttons -->
+  <a href="#" class="float float-wa"><i class="bi bi-whatsapp"></i></a>
+  <a href="#" class="float float-call"><i class="bi bi-telephone-fill"></i></a>
+  <a href="#" class="float float-chat"><i class="bi bi-chat-square-text"></i></a>
+
+  <!-- Bootstrap JS, phir apni JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="main.js"></script>
+</body>
+</html>
