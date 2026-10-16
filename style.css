@@ -1,104 +1,144 @@
-/* ===== Variables ===== */
-
 :root { --gold: #a8782a; --ink: #14161f; --cream: #fbf9f6; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; color: var(--ink); overflow-x: hidden; }
+img { max-width: 100%; }
 
-body { font-family: 'Jost', sans-serif; color: var(--ink); }
-
-/* ===== Top bar + header ===== */
+/* ===== Header ===== */
 .topbar { background: var(--ink); color: #fff; font-size: .75rem; letter-spacing: .08em; }
+.site-header { transition: box-shadow .3s; }
+.site-header.scrolled { box-shadow: 0 4px 18px rgba(0,0,0,.1); }
 .logo { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--ink); text-decoration: none; }
 .logo small { display: block; font-size: .6rem; letter-spacing: .05em; margin-top: -8px; text-align: right; }
-.navbar .nav-link { font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); }
+.navbar .nav-link { position: relative; font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); }
+.navbar .nav-link::after { content: ""; position: absolute; left: 50%; bottom: 2px; width: 0; height: 1px; background: var(--gold); transition: .3s; }
+.navbar .nav-link:hover::after { width: 60%; left: 20%; }
+.nav-icons i { cursor: pointer; transition: .2s; }
+.nav-icons i:hover { color: var(--gold); transform: scale(1.15); }
 
 /* ===== Hero ===== */
 .hero {
-  min-height: 560px; color: #fff; display: flex; align-items: flex-end;
-  background: linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.35)),
-              radial-gradient(circle at 70% 40%, #5a4a3a, #14161f);
+  min-height: 560px; color: #fff; display: flex; align-items: center; position: relative; overflow: hidden;
+  background: linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,.4)), radial-gradient(circle at 75% 45%, #6b5238, #14161f);
 }
-.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.2rem); }
+.hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background-image: radial-gradient(2px 2px at 20% 30%, #fff, transparent), radial-gradient(2px 2px at 60% 70%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 80% 20%, #fff, transparent), radial-gradient(1.5px 1.5px at 40% 85%, #fff, transparent),
+    radial-gradient(2px 2px at 90% 60%, #fff, transparent);
+  animation: twinkle 3s ease-in-out infinite;
+}
+.hero .container-fluid { position: relative; z-index: 2; }
+.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.4rem); animation: fadeUp .9s both; }
+.hero p { max-width: 520px; animation: fadeUp .9s .2s both; }
+.hero .btn { animation: fadeUp .9s .4s both; }
+.hero-gem { width: min(340px, 70%); animation: float 4s ease-in-out infinite; filter: drop-shadow(0 20px 30px rgba(0,0,0,.5)); }
 
 /* ===== Buttons + titles ===== */
-.btn-shop { background: #fff; color: var(--ink); border-radius: 0; letter-spacing: .15em; font-size: .8rem; padding: .9rem 1.8rem; }
-.btn-shop:hover { background: var(--gold); color: #fff; }
-.sec-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); text-align: center; }
+.btn-shop { background: #fff; color: var(--ink); border-radius: 0; letter-spacing: .15em; font-size: .8rem; padding: .9rem 1.8rem; transition: .3s; }
+.btn-shop:hover { background: var(--gold); color: #fff; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(168,120,42,.4); }
+.btn-gold { background: var(--gold); color: #fff; border-radius: 0; }
+.btn-gold:hover { background: #8a6120; color: #fff; }
+.sec-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); text-align: center; position: relative; padding-bottom: 14px; }
+.sec-title::after { content: ""; display: block; width: 50px; height: 2px; background: var(--gold); margin: 10px auto 0; }
 
-/* ===== Gemstone circles ===== */
-.gem {
-  width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 12px;
-  box-shadow: inset -6px -6px 14px rgba(0,0,0,.35), 0 4px 10px rgba(0,0,0,.2);
-}
-.gem-yellow { background: radial-gradient(circle at 30% 30%, #fff8, #e8c93a 45%); }
-.gem-blue   { background: radial-gradient(circle at 30% 30%, #fff8, #1d3fbf 45%); }
-.gem-green  { background: radial-gradient(circle at 30% 30%, #fff8, #14794a 45%); }
-.gem-red    { background: radial-gradient(circle at 30% 30%, #fff8, #cf1522 45%); }
-.gem-coral  { background: radial-gradient(circle at 30% 30%, #fff8, #ee4a2c 45%); }
-.gem-pearl  { background: radial-gradient(circle at 30% 30%, #fff8, #f1f1ee 45%); }
-.gem-olive  { background: radial-gradient(circle at 30% 30%, #fff8, #8c9060 45%); }
-.gem-garnet { background: radial-gradient(circle at 30% 30%, #fff8, #a02a20 45%); }
-.gem-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; }
-.gem-sub { font-size: .8rem; color: #444; }
+/* ===== Marquee ===== */
+.marquee { background: var(--cream); border-bottom: 1px solid #eee; overflow: hidden; white-space: nowrap; padding: 14px 0; }
+.marquee-track { display: inline-block; animation: scroll 25s linear infinite; }
+.marquee-track span { margin: 0 28px; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+.marquee-track span::before { content: "✦"; margin-right: 28px; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
 
-/* ===== Jewellery category cards ===== */
-.cat-img {
-  aspect-ratio: 1 / 1.1; display: flex; align-items: center; justify-content: center;
-  font-size: 4rem; background: linear-gradient(135deg, #f3e9d8, #d8c3a0);
-}
+/* ===== Gems ===== */
+.gem-img { width: 100px; height: 100px; object-fit: contain; transition: transform .4s; filter: drop-shadow(0 6px 8px rgba(0,0,0,.2)); }
+.gem-card:hover .gem-img { transform: translateY(-8px) rotate(8deg) scale(1.1); }
+.gem-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; margin-top: 8px; }
+.gem-sub { font-size: .8rem; color: #555; }
+
+/* ===== Image cards (zoom on hover) ===== */
+.img-wrap { overflow: hidden; background: #f3e9d8; }
+.img-wrap img { width: 100%; display: block; transition: transform .6s; }
+.img-card:hover .img-wrap img { transform: scale(1.12); }
 
 /* ===== Zodiac ===== */
 .zodiac { background: var(--cream); }
 .z-card {
   background: #fff; border: 1px solid var(--gold); padding: 14px; height: 100%;
-  display: flex; align-items: center; gap: 14px; transition: .2s;
-  text-decoration: none; color: var(--ink);
+  display: flex; align-items: center; gap: 14px; transition: .3s; text-decoration: none; color: var(--ink);
 }
-.z-card:hover { box-shadow: 0 6px 18px rgba(168,120,42,.25); transform: translateY(-2px); }
-.z-ic {
-  width: 56px; height: 56px; border-radius: 50%; background: var(--gold); color: #fff;
-  font-size: 1.6rem; display: flex; align-items: center; justify-content: center; flex: none;
-}
+.z-card:hover { background: var(--gold); color: #fff; transform: translateY(-4px); box-shadow: 0 10px 22px rgba(168,120,42,.3); }
+.z-ic { width: 56px; height: 56px; border-radius: 50%; background: var(--gold); color: #fff; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; flex: none; transition: .3s; }
+.z-card:hover .z-ic { background: #fff; color: var(--gold); transform: rotate(360deg); }
 .z-card b { display: block; }
-.z-card span { color: var(--gold); }
+.z-card span { color: var(--gold); transition: .3s; }
+.z-card:hover span { color: #fff; }
 
-/* ===== Brooches / Cufflinks tiles ===== */
-.tile {
-  min-height: 420px; color: #fff; padding: 2rem; text-align: center;
-  display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-}
-.tile h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; }
+/* ===== Tiles ===== */
+.tile { display: block; position: relative; min-height: 420px; overflow: hidden; color: #fff; text-decoration: none; }
+.tile-blue { background: linear-gradient(135deg, #1e3a6b, #0b1530); }
+.tile-grey { background: linear-gradient(135deg, #8a8f99, #3c4048); }
+.tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 30px 30px 110px; transition: transform .7s; }
+.tile:hover img { transform: scale(1.1) rotate(2deg); }
+.tile-body { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.5rem; text-align: center; background: linear-gradient(transparent, rgba(0,0,0,.75)); }
+.tile h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; }
 .tile small { letter-spacing: .2em; }
-.tile-blue { background: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.7)), linear-gradient(135deg, #1e3a6b, #0b1530); }
-.tile-grey { background: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.6)), linear-gradient(135deg, #8a8f99, #3c4048); }
 
-/* ===== Natural Diamonds banner ===== */
+/* ===== Diamonds ===== */
 .diamond {
-  min-height: 320px; background-color: #000; color: #fff; text-align: center;
+  position: relative; min-height: 340px; background: #000; color: #fff; text-align: center; overflow: hidden;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  background-image: radial-gradient(circle at 15% 40%, #444, transparent 25%),
-                    radial-gradient(circle at 90% 50%, #5a3a30, transparent 30%);
+  background-image: radial-gradient(circle at 15% 40%, #333, transparent 30%), radial-gradient(circle at 90% 50%, #5a3a30, transparent 30%);
 }
+.diamond-img { position: absolute; left: 6%; top: 50%; width: 180px; margin-top: -90px; opacity: .85; animation: float 5s ease-in-out infinite; }
 
-/* ===== Finest gemstones ===== */
-.stone-img { aspect-ratio: 1 / .9; display: flex; align-items: center; justify-content: center; background: #8a8f9d; }
-.stone-gem { width: 55%; aspect-ratio: 1 / .8; border-radius: 40%; }
-.s-ruby { background: radial-gradient(circle at 35% 30%, #fff7, #c8203f 55%); }
-.s-alx1 { background: radial-gradient(circle at 35% 30%, #fff7, #9a8a3a 55%); }
-.s-alx2 { background: radial-gradient(circle at 35% 30%, #fff7, #a3a06a 55%); }
-.s-alx3 { background: radial-gradient(circle at 35% 30%, #fff7, #c9a020 55%); }
+/* ===== Finest ===== */
+.stone { position: relative; }
+.stone .img-wrap { position: relative; }
 .stone h6 { font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; margin-top: 12px; }
+.heart { position: absolute; top: 10px; right: 10px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: #fff; z-index: 3; transition: .2s; }
+.heart:hover, .heart.on { color: #d11a3a; transform: scale(1.15); }
+.add-cart { position: absolute; left: 0; right: 0; bottom: 0; background: var(--ink); color: #fff; border: 0; padding: 10px; letter-spacing: .15em; font-size: .75rem; transform: translateY(100%); transition: .35s; }
+.stone:hover .add-cart { transform: translateY(0); }
+
+/* ===== Features ===== */
+.features { background: var(--cream); }
+.feat i { font-size: 2.2rem; color: var(--gold); display: inline-block; transition: .4s; }
+.feat:hover i { transform: translateY(-6px) scale(1.15); }
+.feat h6 { margin-top: 10px; letter-spacing: .1em; text-transform: uppercase; font-size: .85rem; }
+.feat p { font-size: .85rem; color: #666; margin: 0; }
 
 /* ===== Footer ===== */
 footer { background: var(--ink); color: #bbb; font-size: .9rem; }
-footer a { color: #bbb; text-decoration: none; }
-footer a:hover { color: #fff; }
+footer a { color: #bbb; text-decoration: none; transition: .2s; }
+footer a:hover { color: #fff; padding-left: 4px; }
 .footer-logo { color: #fff; font-size: 1.8rem; }
 
 /* ===== Floating buttons ===== */
-.float {
-  position: fixed; width: 56px; height: 56px; border-radius: 50%; color: #fff; font-size: 1.6rem;
-  display: flex; align-items: center; justify-content: center; z-index: 99;
-  text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,.3);
-}
-.float-wa   { bottom: 20px; left: 20px; background: #25d366; }
+.float { position: fixed; width: 56px; height: 56px; border-radius: 50%; color: #fff; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; z-index: 99; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,.3); transition: transform .2s; }
+.float:hover { transform: scale(1.1); color: #fff; }
+.float-wa { bottom: 20px; left: 20px; background: #25d366; animation: pulse 2s infinite; }
 .float-call { bottom: 90px; right: 20px; background: #c9a24a; }
 .float-chat { bottom: 20px; right: 20px; background: #14213d; }
+
+/* ===== Scroll reveal ===== */
+.reveal { opacity: 0; transform: translateY(35px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.show { opacity: 1; transform: none; }
+.row > .reveal:nth-child(2) { transition-delay: .08s; }
+.row > .reveal:nth-child(3) { transition-delay: .16s; }
+.row > .reveal:nth-child(4) { transition-delay: .24s; }
+.row > .reveal:nth-child(5) { transition-delay: .32s; }
+.row > .reveal:nth-child(n+6) { transition-delay: .4s; }
+
+/* ===== Keyframes ===== */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-18px) rotate(3deg); } }
+@keyframes twinkle { 0%, 100% { opacity: .2; } 50% { opacity: .7; } }
+@keyframes scroll { to { transform: translateX(-50%); } }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,.6); } 70% { box-shadow: 0 0 0 16px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 767px) { .diamond-img { display: none; } .hero { text-align: center; } .hero p { margin: 0 auto 1rem; } }
+
+.cat-name { font-family: 'Cormorant Garamond', serif; }
